@@ -1,0 +1,6 @@
+@WMS.API_ProyectoFinal_HostAddress = http://localhost:5129
+
+GET {{WMS.API_ProyectoFinal_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
