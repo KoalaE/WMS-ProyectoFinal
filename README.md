@@ -1,63 +1,46 @@
 # WMS — Proyecto Final
 
-Sistema de gestión de bodega (Warner & Spencer).
+Monorepo con **backend** (.NET 8) y **frontend** (React + Vite).
 
-## Estructura
-
-- `WMS-ProyectoFinal/` — API .NET 8 + SQL Server
-- `wms-frontend/` — React + Vite
-
-## Cómo correr
-
-### 1. Base de datos
-
-```bash
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=TuPassword123!" \
-  -p 1433:1433 --name wms-sql -d mcr.microsoft.com/mssql/server:2022-latest
+```
+PROYECTO-FINAL/
+├── backend/          ← API, SQL Server, Swagger
+├── frontend/         ← Interfaz web
+└── README.md
 ```
 
-Agrega en `WMS-ProyectoFinal/appsettings.Development.json`:
-
-```json
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost,1433;Database=WMSDB;User Id=sa;Password=TuPassword123!;TrustServerCertificate=True;"
-  }
-}
-```
-
-### 2. Backend
+## Backend
 
 ```bash
-cd WMS-ProyectoFinal
+cd backend
 export PATH="$PATH:$HOME/.dotnet/tools"
 dotnet ef database update --project WMS.API-ProyectoFinal.csproj
 dotnet run --project WMS.API-ProyectoFinal.csproj
 ```
 
-> Tras cambios en modelos, vuelve a ejecutar `dotnet ef database update`. Si el API ya estaba corriendo, reinícialo con Ctrl+C y `dotnet run`.
+- API: http://localhost:5129  
+- Swagger: http://localhost:5129/swagger  
 
-API: http://localhost:5129 — Swagger: http://localhost:5129/swagger
-
-### 3. Frontend
+## Frontend
 
 ```bash
-cd wms-frontend
+cd frontend
 npm install
 npm run dev
 ```
 
-App: http://localhost:5173
+- App: http://localhost:5173  
 
-## Pantallas
+## Git (un solo repositorio)
 
-| Ruta | Descripción |
-|------|-------------|
-| `/login` | Inicio de sesión |
-| `/dashboard` | Resumen + tabla de productos |
-| `/productos` | CRUD conectado a la API |
-| `/movimientos` | Entradas/salidas + historial (actualiza stock) |
-| `/inventario` | Stock en tiempo real con filtros |
-| `/reportes` | Reporte inventario + auditoría de movimientos |
+Todo el proyecto vive en **una carpeta** con un solo `.git` en la raíz. No clones el repo otra vez dentro de `backend/` ni `frontend/`.
 
-API: `Movimientos`, `Inventario`, `Reportes/inventario`, `Reportes/movimientos`.
+```bash
+cd PROYECTO-FINAL
+git status
+git add backend/ frontend/ README.md .gitignore
+git commit -m "Organizar monorepo: backend y frontend"
+git push
+```
+
+Más detalle en `backend/README.md` y `frontend/README.md`.
