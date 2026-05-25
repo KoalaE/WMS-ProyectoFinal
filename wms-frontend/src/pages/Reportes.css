@@ -1,0 +1,80 @@
+.reportes-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.tab--active {
+  background: linear-gradient(135deg, #5b8fd9, var(--blue));
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(74, 127, 212, 0.3);
+}
+
+.reportes-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding: 18px 20px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.reportes-filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.reportes-filters input,
+.reportes-filters select {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: inherit;
+}
+
+.reportes-filters--wide label {
+  min-width: 140px;
+  flex: 1;
+}
+
+.reportes-summary {
+  margin-bottom: 20px;
+}
+
+.tipo-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.tipo-badge--entrada {
+  background: #c6f6d5;
+  color: #22543d;
+}
+
+.tipo-badge--salida {
+  background: #fed7d7;
+  color: #822727;
+}
